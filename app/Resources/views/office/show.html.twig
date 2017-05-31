@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+        <div class="content-block"> 
+    <h1>Office</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ office.id }}</td>
+            </tr>
+            <tr>
+                <th>Companyid</th>
+                <td>{{ office.company }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ office.officeAdress }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('office_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('office_edit', { 'id': office.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+</div>
+{% endblock %}

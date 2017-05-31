@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+
+        <link href="https://fonts.googleapis.com/css?family=Arsenal|Play" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Reenie+Beanie" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Abel|Gloria+Hallelujah" rel="stylesheet">
+
+
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+        <!-- Website Font style -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		
+	<style>
+	 body { padding-top: 70px;} 
+	 body { 
+	      background: url("http://shooltz.ru/wp-content/uploads/2012/01/texture1.png") no-repeat;
+	      background-size: 100%;
+	      background-attachment: fixed; } 
+	 </style>
+
+    {% endblock %}
+
+</head>
+<body>
+    <span id="more"></span>
+
+ <!--<div class="preloader">
+        <div class="loader"></div>
+    </div> -->
+
+    
+    <!-- Fixed navbar -->   
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">       
+       <li class="active"><a href="{{ path('companies_default') }}">Головна</a></li>
+       <li><a href="{{ path('company_index') }}">Компанії</a></li>        
+       <li><a href="{{ path('office_index') }}">Офіси</a></li>
+       <li><a href="{{ path('person_index') }}">Персонал</a></li>      
+       <li><a href="{{ path('category_index') }}">Категорії</a></li>
+       <li><a href="{{ path('companies_news') }}">Новини</a></li>
+       <li><a href="{{ path('companies_about') }}">Про нас</a></li>
+       <li><a href="{{ path('companies_contact') }}">Контакти</a></li>
+       <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Створити&nbsp;<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="{{ path('company_new') }}">Компанію</a></li>
+                <li><a href="{{ path('office_new') }}">Адресу офісу</a></li> 
+                <li><a href="{{ path('person_new') }}">Контактну персону</a></li>
+		<li><a href="{{ path('category_new') }}">Створити категорію</a></li>
+
+            </ul>
+        </li> 
+
+   </ul>
+
+   <ul class="nav navbar-nav navbar-right">       
+    <li>
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}              
+            <a href="{{ ('fos_user_security_logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i>
+                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+            </a>
+        {% else %}
+            <a href="{{ path('fos_user_security_login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i>
+                {{ 'Увійти'|trans({}, 'FOSUserBundle') }}</a>
+            {% endif %}       
+
+            <li class="dropdown">
+                     
+
+    </ul>
+</div><!--/.nav-collapse -->
+</div>
+</nav>
+
+<div class="container">
+    {% block body %}
+
+    {% endblock %}
+
+    <div class="up">
+        <a href="javascript://void(0)" onclick="slowScroll('#more')"></a>
+    </div>    
+</div>
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('jquery-3.2.0.min.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>﻿
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script>
+        function slowScroll (id) {
+            var offset = 0;
+            $('html, body').animate ({
+                scrollTop: $(id).offset ().top - offset
+            }, 1000);
+            return false;
+        }
+    </script>
+
+    <script>
+        $(document).ready(function() {
+          $('li.active').removeClass('active');
+          $('a[href="' + location.pathname + '"]').closest('li').addClass('active'); 
+      });
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip(); 
+        });
+    </script>
+
+
+    <script>
+      jQuery(document).ready(function($) {
+
+        $('#myCarousel').carousel({
+            interval: 10000
+        });
+        
+
+        $('#carousel-text').html($('#slide-content-0').html());
+
+        //Handles the carousel thumbnails
+        $('[id^=carousel-selector-]').click( function(){
+            var id = this.id.substr(this.id.lastIndexOf("-") + 1);
+            var id = parseInt(id);
+            $('#myCarousel').carousel(id);
+        });
+
+
+        // When the carousel slides, auto update the text
+        $('#myCarousel').on('slid.bs.carousel', function (e) {
+         var id = $('.item.active').data('slide-number');
+         $('#carousel-text').html($('#slide-content-'+id).html());
+     });
+    });
+  </script>
+
+{% endblock %}
+
+</body>
+</html>

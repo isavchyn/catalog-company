@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block title %}Categories{% endblock %}
+{% block body %}  
+   <div id="meg" class="text-right"></div>
+   {% for category in categories|reverse %}
+     <div class="content-block"> 
+        
+      <h2>{{ category.name }}&nbsp;<small></small></h2>
+      <h4>Батьківська категорія: {{ category.parent }}</h4>
+      <i class="fa fa-clock-o" aria-hidden="true"></i> Дата створення:&nbsp; {% if category.createdAt %}{{ category.createdAt|date('H:i:s d-m-Y') }}{% endif %}<br>
+      <i class="fa fa-clock-o" aria-hidden="true"></i> Дата оновлення: &nbsp;{% if category.updatedAt %}{{ category.updatedAt|date('H:i:s d-m-Y') }}{% endif %}<br>
+  </div>
+	<div class="text-rightt">
+          <a class="text-right" href="{{ path('category_edit', { 'id': category.id }) }}"><i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip" data-placement="left" title="edit"></i>Редагувати</a>  
+      </div>
+{% endfor %}
+</div>
+{% endblock %}

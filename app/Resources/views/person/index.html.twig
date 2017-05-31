@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Persons list{% endblock %}
+
+  {% block body %}
+    <div id="meg" class="text-right"></div>    
+    {% for person in people|reverse %}
+	<div class="col-sm-6 col-md-4">      
+	<div class="content-block"> 
+
+        
+        <div class="text-left"><img class="profile-img" src="https://www.iconsfind.com/wp-content/uploads/2015/11/20151112_5643f331cf8c4-210x210.png" alt=""></div>
+
+        {{ person.name }}&nbsp;&nbsp;<br>
+       
+        
+        Телефон:    {{ person.phone}} <br>
+        Офіс:    {{ person.office }} <br>   
+	Компанія: {{ person.company }} <br>  
+        
+      </div>
+			
+		<div class="text-rightt">
+          <a class="text-right" href="{{ path('person_edit', { 'id': person.id }) }}"><i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip" data-placement="left" title="edit">Редагувати</i></a>  
+        </div>
+	</div>
+
+
+    {% endfor %}    
+  {% endblock %}

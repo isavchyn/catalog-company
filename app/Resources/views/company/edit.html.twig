@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ company.name }} edit{% endblock %}
+  {% block body %}
+    <div class="content-block"> 
+      <div class="text-left">
+        <a href="{{ ('company') }}"><i class="fa fa-reply" aria-hidden="true"></i></a>    
+      </div> 
+      <div class="text-right">
+        {{ form_start(delete_form) }}  
+        <button class="btn btn-link" type="submit"><i class="fa fa-times" aria-hidden="true"></i></button>
+        {{ form_end(delete_form) }}
+      </div>
+      <h1 class="text-center">Company edit</h1><br>
+      {{ form_start(edit_form) }}
+      Name
+      {{ form_widget(edit_form.name) }}<br>
+      Website
+      {{ form_widget(edit_form.site) }}<br>
+      Description
+      {{ form_widget(edit_form.description) }}<br>
+      Category
+      {{ form_widget(edit_form.category) }}<br>
+      Created at
+      {{ form_widget(edit_form.create) }}<br>
+      <div class="hidden">
+        {{ form_widget(edit_form.createdAt) }}
+        {{ form_widget(edit_form.updatedAt) }}
+      
+      </div>    
+      <button type="submit" class="btn btn-default">Save&nbsp;<i class="fa fa-floppy-o" aria-hidden="true"></i></button>      
+      {{ form_end(edit_form) }}   
+    </div>   
+
+
+{% for flashMessage in app.session.flashbag.get('notice') %}
+    <div class="alert alert-warning">{{ flashMessage }}</div>
+{% endfor %} 
+  {% endblock %}

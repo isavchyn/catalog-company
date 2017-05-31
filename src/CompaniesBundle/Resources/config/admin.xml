@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <services>
+    <service id="admin.company" class="CompaniesBundle\Admin\companyAdmin">
+      <tag name="sonata.admin" manager_type="orm" group="Company Posts" label="Company"/>
+      <argument/>
+      <argument>CompaniesBundle\Entity\company</argument>
+      <argument>SonataAdminBundle:CRUD</argument>
+    </service>  
+
+    <service id="admin.office" class="CompaniesBundle\Admin\officeAdmin">
+      <tag name="sonata.admin" manager_type="orm" group="Company Posts" label="Office"/>
+      <argument/>
+      <argument>CompaniesBundle\Entity\office</argument>
+      <argument>SonataAdminBundle:CRUD</argument>
+    </service>  
+
+    <service id="admin.person" class="CompaniesBundle\Admin\personAdmin">
+      <tag name="sonata.admin" manager_type="orm" group="Company Posts" label="Person"/>
+      <argument/>
+      <argument>CompaniesBundle\Entity\person</argument>
+      <argument>SonataAdminBundle:CRUD</argument>
+    </service>   
+
+    <service id="admin.category" class="CompaniesBundle\Admin\CategoryAdmin">
+      <tag name="sonata.admin" manager_type="orm" group="Company Posts" label="Category"/>
+      <argument/>
+      <argument>CompaniesBundle\Entity\Category</argument>
+      <argument>SonataAdminBundle:CRUD</argument>
+    </service>   
+
+
+   <!--  <service id="admin.news" class="CompaniesBundle\Admin\NewsAdmin">
+     <tag name="sonata.admin" manager_type="orm" group="News qwerty" label="News"/>
+     <argument/>
+     <argument>CompaniesBundle\Entity\News</argument>
+     <argument>SonataAdminBundle:CRUD</argument>
+   </service>   -->
+
+  </services>
+</container>

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Officesses list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Companyid</th>
+                <th>Officessadress</th>
+                <th>Phone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for officess in officesses %}
+            <tr>
+                <td><a href="{{ path('officess_show', { 'id': officess.id }) }}">{{ officess.id }}</a></td>
+                <td>{{ officess.companyId }}</td>
+                <td>{{ officess.officessAdress }}</td>
+                <td>{{ officess.phone }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('officess_show', { 'id': officess.id }) }}">show</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

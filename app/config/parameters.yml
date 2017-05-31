@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: localhost
+    database_port: null
+    database_name: php_1_10_symfony
+    database_user: php-1-10
+    database_password: Foa1P3JQ
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: g
+    mailer_password: null
+    secret: ThisTokenIsNotSoSecretChangeIt

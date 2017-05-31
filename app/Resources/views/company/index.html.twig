@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Company list{% endblock %}
+
+	{% block body %}   
+		
+
+		<!--<div class="just">Companies list</div> -->
+
+		<div id="meg" class="text-right"></div> 
+
+		{% for company in companies|reverse %}
+
+			<div class="content-block"> 
+
+				
+				<h2 class="disabled_style"> <a href="{{ path('company_show', { 'id': company.id }) }}" data-toggle="tooltip" data-placement="bottom" title="press for more info">{{ company.name }}</a></h2>
+
+				<p class="text-right">{{ company.site }}</p>
+				<p class="text-justify">{{ company.description [:1200] }}...</p>
+				<div class="text-rightt">
+					<a class="text-right" href="{{ path('company_edit', { 'id': company.id }) }}"><i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip" data-placement="left" title="Редагувати">Редагувати</i></a>    
+					<!-- <a class="text-right" href="#"><i class="fa fa-times" aria-hidden="true"></i></a>  -->
+				 
+				</div>
+	
+
+			</div><br>
+
+		{% endfor %}  
+	{% endblock %}
+

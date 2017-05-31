@@ -1,0 +1,36 @@
+
+
+companies_about:
+    path:     /about
+    defaults: { _controller: CompaniesBundle:About:index }
+
+
+companies_category:
+    path:     /category
+    defaults: { _controller: CompaniesBundle:Category:index }
+
+companies_contact:
+    path:     /contact
+    defaults: { _controller: CompaniesBundle:Contact:index }
+
+companies_news:
+    path:     /news
+    defaults: { _controller: CompaniesBundle:News:index }
+
+companies_default:
+    path:     /default
+    defaults: { _controller: CompaniesBundle:Default:index }
+
+companies_company:
+    resource: "@CompaniesBundle/Resources/config/routing/company.yml"
+    prefix:   /company
+
+companies_office:
+        resource: "@CompaniesBundle/Resources/config/routing/office.yml"
+        prefix:   /office
+
+companies_person:
+        resource: "@CompaniesBundle/Resources/config/routing/person.yml"
+        prefix:   /person
+
+

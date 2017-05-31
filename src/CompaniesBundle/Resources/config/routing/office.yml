@@ -1,0 +1,24 @@
+office_index:
+    path:     /
+    defaults: { _controller: "CompaniesBundle:office:index" }
+    methods:  GET
+
+office_show:
+    path:     /{id}/show
+    defaults: { _controller: "CompaniesBundle:office:show" }
+    methods:  GET
+
+office_new:
+    path:     /new
+    defaults: { _controller: "CompaniesBundle:office:new" }
+    methods:  [GET, POST]
+
+office_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "CompaniesBundle:office:edit" }
+    methods:  [GET, POST]
+
+office_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "CompaniesBundle:office:delete" }
+    methods:  DELETE

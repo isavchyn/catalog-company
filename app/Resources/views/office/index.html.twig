@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Office list {% endblock %}
+    {% block body %}
+       <div id="meg" class="text-right"></div> 
+       {% for office in offices|reverse %}
+<div class="col-sm-6 col-md-4">
+        <div class="content-block"> 
+                
+            <div class="text-left"><img class="profile-img" src="http://events.cleantech.com/wp-content/uploads/2014/12/BGAB_icon_211x211.png" alt=""></div>
+		
+        
+        Телефон:    {{ office.phone}} <br>
+        Офіс:    {{ office }} <br>   
+	Компанія: {{ office.company }} <br>  
+		 <div class="text-rightt">
+                <a class="text-right" href="{{ path('office_edit', { 'id': office.id }) }}"><i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip" data-placement="left" title="edit">Редагувати</i></a>  
+            </div>   
+        </div>
+	</div>
+    {% endfor %} 
+{% endblock %}
+ 
